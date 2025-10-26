@@ -3,7 +3,7 @@
 // --- KONFIGURASI API ---
 // GANTI DENGAN URL API SERVERLESS ANDA
 // Misalnya: https://abcdef123.execute-api.us-east-1.amazonaws.com/api
-const API_BASE_URL = 'http://localhost:7700/api'; // Ganti ini saat deploy
+const API_BASE_URL = 'https://kantin44n.vercel.app/api'; // Ganti ini saat deploy
 let tokoAktif = null;
 
 // --- VARIABEL GLOBAL ---
