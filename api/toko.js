@@ -6,7 +6,7 @@ const HEADERS = {
     'Content-Type': 'application/json'
 };
 
-exports.handler = async (req) => {
+const handler = async (req) => { // Menggunakan handler bernama untuk ekspor tunggal
     // Penanganan pre-flight CORS (OPTIONS request)
     if (req.method === 'OPTIONS') {
         return {
@@ -44,3 +44,5 @@ exports.handler = async (req) => {
         };
     }
 };
+
+module.exports = handler; // EKSPOR STANDAR UNTUK SERVERLESS FUNCTIONS

@@ -6,11 +6,9 @@ const HEADERS = {
     'Content-Type': 'application/json'
 };
 
-exports.handler = async (req) => {
-    // Asumsi: id_toko didapatkan dari query parameter 'id' di lingkungan serverless
+const handler = async (req) => { // Menggunakan handler bernama untuk ekspor tunggal
     const id_toko = req.queryStringParameters?.id || 0;
     
-    // Penanganan pre-flight CORS
     if (req.method === 'OPTIONS') {
         return {
             statusCode: 200,
@@ -28,7 +26,6 @@ exports.handler = async (req) => {
     }
     
     try {
-        // Mengambil menu berdasarkan id_toko
         const [rows] = await pool.execute(
             `SELECT id_menu AS id, nama_produk, harga, stok 
              FROM menu 
@@ -50,3 +47,5 @@ exports.handler = async (req) => {
         };
     }
 };
+
+module.exports = handler; // EKSPOR STANDAR UNTUK SERVERLESS FUNCTIONS

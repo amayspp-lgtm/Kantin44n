@@ -6,8 +6,7 @@ const HEADERS = {
     'Content-Type': 'application/json'
 };
 
-exports.handler = async (req) => {
-    // Penanganan pre-flight CORS
+const handler = async (req) => { // Menggunakan handler bernama untuk ekspor tunggal
     if (req.method === 'OPTIONS') {
         return {
             statusCode: 200,
@@ -30,7 +29,7 @@ exports.handler = async (req) => {
         }
         
         connection = await pool.getConnection();
-        await connection.beginTransaction(); // Mulai Transaksi
+        await connection.beginTransaction();
         
         // 1. INSERT ke tabel Transaksi
         const status = (metode_pembayaran === 'QRIS' ? 'Menunggu Pembayaran' : 'Diproses');
@@ -49,7 +48,6 @@ exports.handler = async (req) => {
             );
             
             if (stokCheck.length === 0 || stokCheck[0].stok < item.jumlah) {
-                // Batalkan transaksi jika stok tidak cukup
                 throw new Error(`Stok tidak cukup untuk ID Menu: ${item.id}`);
             }
             
@@ -67,7 +65,7 @@ exports.handler = async (req) => {
             );
         }
         
-        await connection.commit(); // Konfirmasi semua operasi
+        await connection.commit();
         
         return {
             statusCode: 200,
@@ -76,7 +74,7 @@ exports.handler = async (req) => {
         };
         
     } catch (error) {
-        if (connection) await connection.rollback(); // Batalkan semua jika ada error
+        if (connection) await connection.rollback();
         console.error("Error saat memproses transaksi:", error);
         
         return {
@@ -88,3 +86,5 @@ exports.handler = async (req) => {
         if (connection) connection.release();
     }
 };
+
+module.exports = handler; // EKSPOR STANDAR UNTUK SERVERLESS FUNCTIONS
