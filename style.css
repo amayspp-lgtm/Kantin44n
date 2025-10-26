@@ -1,0 +1,222 @@
+/* Definisikan Variabel Warna untuk Konsistensi */
+:root {
+    --biru-primer: #1976D2; /* Biru Logo */
+    --biru-aksen: #007bff;  /* Biru Tombol/Aksi */
+    --oranye-aksen: #FF7F50; /* Aksen dari Ikon Kartu */
+    --latar-belakang: #f7f9fc;
+    --teks-gelap: #333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--latar-belakang);
+    color: var(--teks-gelap);
+    line-height: 1.6;
+}
+
+/* HEADER & NAVIGASI */
+header {
+    background-color: white; 
+    border-bottom: 3px solid var(--biru-primer);
+    padding: 10px 40px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; 
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* KONTROL JUDUL HEADER BARU */
+.header-titles {
+    display: flex;
+    flex-direction: column; 
+    line-height: 1.1; 
+}
+
+header h1 {
+    margin: 0;
+    color: var(--biru-primer);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.school-name {
+    margin: 0;
+    color: #6c757d; /* Warna abu-abu halus agar terlihat profesional */
+    font-size: 0.8em; 
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    color: var(--teks-gelap);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600; 
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: var(--biru-aksen);
+    border-bottom: 2px solid var(--biru-aksen);
+}
+
+/* MAIN CONTENT */
+main {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    color: var(--biru-primer);
+    font-size: 1.6em;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* MENU & TOKO SECTION */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item h3 {
+    color: var(--oranye-aksen); 
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.menu-item .harga {
+    font-weight: 700;
+    color: var(--biru-aksen);
+    font-size: 1.2em;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+/* TOMBOL */
+.checkout-btn, .pilih-toko, .tambah-ke-keranjang {
+    background-color: var(--biru-aksen);
+    color: white;
+    border: none;
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover, .pilih-toko:hover, .tambah-ke-keranjang:hover {
+    background-color: var(--biru-primer);
+}
+
+.checkout-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+/* KERANJANG */
+#keranjang-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#keranjang-table th, #keranjang-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+}
+
+#keranjang-table th {
+    background-color: var(--biru-primer);
+    color: white;
+    font-weight: 600;
+}
+
+#keranjang-table tfoot td {
+    font-weight: 700;
+    background-color: #eaf1fa; 
+    color: var(--teks-gelap);
+    font-size: 1.1em;
+}
+
+.hapus-item {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+/* KONFIRMASI */
+.pembayaran-opsi h3 {
+    color: var(--oranye-aksen);
+}
+
+#final-checkout-btn {
+    background-color: var(--oranye-aksen);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#final-checkout-btn:hover {
+    background-color: #e56738;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--biru-primer);
+    color: white;
+    margin-top: 40px;
+}

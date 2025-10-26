@@ -1,0 +1,14 @@
+{
+  "name": "kantin-digital-project",
+  "version": "1.0.0",
+  "description": "Monorepo for Kantin Digital Website (Frontend and Serverless API)",
+  "main": "api/transaksi.js",
+  "scripts": {
+    "install-deps": "npm install",
+    "start-frontend": "echo 'Buka index.html di browser Anda.'",
+    "deploy-api": "echo 'Gunakan CLI penyedia serverless Anda (misalnya: sls deploy, gcloud functions deploy) di folder /api'"
+  },
+  "dependencies": {
+    "mysql2": "^3.9.7"
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantin Digital - SMKN44JAKARTA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo Kantin Digital" class="logo">
+            <div class="header-titles">
+                <h1>Kantin Digital</h1>
+                <h2 class="school-name">SMKN44JAKARTA</h2>
+            </div>
+        </div>
+        <nav>
+            <a href="#" id="nav-kembali" style="display: none;">&larr; Kembali ke Toko</a>
+            <a href="#keranjang" id="nav-keranjang">Keranjang (<span id="jumlah-keranjang">0</span>)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="toko-selection">
+            <h2>Pilih Toko Kantin</h2>
+            <div id="toko-list" class="menu-container">
+                </div>
+        </section>
+        
+        <section id="menu-page" style="display: none;">
+            <h2 id="nama-toko-terpilih"></h2>
+            
+            <div class="menu-container" id="menu-produk-list">
+                </div>
+
+            <hr>
+
+            <section id="keranjang-section">
+                <h2>Keranjang Belanja</h2>
+                <table id="keranjang-table">
+                    <thead>
+                        <tr>
+                            <th>Menu</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Subtotal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="keranjang-body">
+                        </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td id="total-harga">Rp 0</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button id="lanjut-konfirmasi-btn" class="checkout-btn" disabled>Lanjut Konfirmasi Pesanan</button>
+            </section>
+        </section>
+
+        <section id="konfirmasi-page" style="display: none;">
+            <h2>Konfirmasi & Pembayaran</h2>
+            <div id="ringkasan-order"></div>
+            
+            <div class="pembayaran-opsi">
+                <h3>Pilih Metode Pembayaran:</h3>
+                <label>
+                    <input type="radio" name="metode_pembayaran" value="QRIS" required> QRIS
+                </label><br>
+                <label>
+                    <input type="radio" name="metode_pembayaran" value="COD" required> COD (Bayar di Tempat)
+                </label>
+
+                <div id="qris-display" style="display: none; margin-top: 15px; padding: 15px; border: 1px dashed #ccc;">
+                    <p>Scan kode QRIS ini untuk **<span id="qris-nama-toko"></span>**:</p>
+                    <img id="qris-image" src="" alt="Kode QRIS" width="150">
+                    <p class="harga">Total Pembayaran: <span id="qris-total">Rp 0</span></p>
+                </div>
+            </div>
+
+            <button id="final-checkout-btn" class="checkout-btn" disabled>Finalisasi Pesanan</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Kantin Digital. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
